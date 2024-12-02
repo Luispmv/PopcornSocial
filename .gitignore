@@ -1,0 +1,36 @@
+# Archivos de configuración del sistema
+.DS_Store
+Thumbs.db
+
+# Entorno de Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+db.sqlite3
+
+# Entorno virtual
+venv/
+env/
+ENV/
+*.venv
+*.env
+
+# Archivos de configuración de Django
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.sqlite3
+staticfiles/
+media/
+
+# Archivos de entorno y configuración privada
+.env
+
+# Archivos de compilación y distribución de Python
+*.egg-info/
+dist/
+build/
