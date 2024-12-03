@@ -54,8 +54,8 @@ ROOT_URLCONF = 'Movie_Review.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [],  # Si no tienes plantillas globales, puedes dejar esto vacío
+        'APP_DIRS': True,  # Habilita la búsqueda automática en cada app
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
