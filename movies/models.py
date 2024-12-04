@@ -6,7 +6,7 @@ class Movie(models.Model):
     release_date = models.DateField(null=True, blank=True)  # Fecha de lanzamiento
     genre = models.CharField(max_length=100, blank=True)  # Género de la película
     director = models.CharField(max_length=150, blank=True)  # Director de la película
-    poster = models.ImageField(upload_to='posters/', blank=True, null=True)  # Póster de la película
+    poster_url = models.URLField(blank=True, null=True)  # URL de la imagen de la película
     created_at = models.DateTimeField(auto_now_add=True)  # Fecha de creación del registro
 
     def __str__(self):

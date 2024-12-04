@@ -49,10 +49,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PopcornSocial - Red Social de Reseñas de Películas</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/review_card.css' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-white">
     <!-- Barra de Navegación -->
@@ -126,12 +125,16 @@
         {% for review in reviews %}
             <div class="carousel-item flex-shrink-0 w-80 card-gradient p-6 rounded-lg shadow-lg">
                 <div class="flex items-center mb-4">
-                    <img src="{{ review.user.profile.avatar.url|default:'/static/images/default-avatar.png' }}" alt="Avatar" class="w-12 h-12 rounded-full mr-4">
                     <div>
                         <h3 class="font-semibold">{{ review.user.username }}</h3>
                         <p class="text-sm text-gray-400">{{ review.created_at|timesince }} ago</p>
                     </div>
                 </div>
+                {% if review.movie.poster %}
+                    <img src="{{ review.movie.poster.url }}" alt="Póster de {{ review.movie.title }}" class="w-full h-48 object-cover mb-4 rounded-lg">
+                {% elif review.movie.poster_url %}
+                    <img src="{{ review.movie.poster_url }}" alt="Póster de {{ review.movie.title }}" class="w-full h-48 object-cover mb-4 rounded-lg">
+                {% endif %}
                 <h4 class="text-xl font-bold mb-2">{{ review.movie.title }}</h4>
                 <p class="text-gray-300 mb-4">{{ review.review_text }}</p>
                 <div class="flex items-center">
