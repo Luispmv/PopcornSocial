@@ -1,83 +1,147 @@
-/* General styling */
+/* Definición de variables de color */
+/* Definición de variables de color */
+:root {
+	--color-primary-light: #e0e0e0;
+	--color-primary-dark: #333333;
+	--color-secondary-light: #f5f5f5;
+	--color-secondary-dark: #666666;
+	--color-accent: #ff4081;
+	--color-accent-dark: #c60055;
+	--color-background: #ffffff;
+	--color-border: #cccccc;
+	--color-button-text: #333333;
+	--color-icon: #ff4081;
+	--color-shadow: rgba(0, 0, 0, 0.2);
+}
+
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    color: #ff0000;
-    background-color: #f8f9fa;
-  }
-  
-  .hero-section {
-    background: linear-gradient(90deg, #4a00e0, #8e44ad);
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-  }
-  
-  .hero-section h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-  }
-  
-  .hero-section p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-  
-  .features {
-    text-align: center;
-    padding: 50px 20px;
-  }
-  
-  .features h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-  }
-  
-  .feature-cards {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .feature-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 250px;
-    text-align: center;
-  }
-  
-  .feature-card i {
-    font-size: 3rem;
-    color: #8e44ad;
-    margin-bottom: 10px;
-  }
-  
-  .feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .feature-card p {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  footer {
-    text-align: center;
-    padding: 20px 0;
-    background-color: #8e44ad;
-    color: white;
-  }
-  
-  footer p {
-    margin: 0;
-  }
-  
-  .pb-4{
-    margin-top: 20px;
-  }
+  background-color: var(--color-background);
+  color: var(--color-primary-dark);
+}
+
+/* Encabezado principal */
+.hero-section {
+  background-color: var(--color-primary-dark);
+  color: var(--color-primary-light);
+  text-align: center;
+  padding: 4rem 2rem;
+  box-shadow: 0 4px 8px var(--color-shadow);
+}
+
+.hero-section h1 {
+  color: var(--color-accent);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-section p {
+  color: var(--color-secondary-light);
+  font-size: 1.25rem;
+}
+
+/* Barra de navegación */
+nav {
+  background-color: var(--color-secondary-dark);
+  border-bottom: 1px solid var(--color-border);
+}
+
+nav a {
+  color: var(--color-primary-light);
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--color-accent);
+}
+
+/* Carrusel de reseñas */
+.carousel-item {
+  background-color: var(--color-secondary-light);
+  border: 1px solid var(--color-border);
+  color: var(--color-primary-dark);
+  box-shadow: 0 2px 4px var(--color-shadow);
+}
+
+.carousel-item h4 {
+  color: var(--color-accent-dark);
+}
+
+.carousel-item img {
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+}
+
+.carousel-item span {
+  color: var(--color-accent);
+}
+
+/* Sección de Películas Populares */
+.grid div {
+  background-color: var(--color-secondary-light);
+  box-shadow: 0 4px 8px var(--color-shadow);
+}
+
+.grid img {
+  border: 1px solid var(--color-border);
+  border-radius: 8px 8px 0 0;
+}
+
+.grid h3 {
+  color: var(--color-accent-dark);
+}
+
+/* Pie de página */
+footer {
+  background-color: var(--color-secondary-dark);
+  color: var(--color-primary-light);
+}
+
+footer a {
+  color: var(--color-secondary-light);
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: var(--color-accent);
+}
+
+/* Botones */
+button {
+  background-color: var(--color-accent);
+  color: var(--color-button-text);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background-color: var(--color-accent-dark);
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: var(--color-accent-dark);
+  transform: scale(1);
+}
+
+/* Formularios */
+input, textarea {
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--color-accent);
+  outline: none;
+  box-shadow: 0 0 4px var(--color-shadow);
+}
+
+.mb-6{
+  margin: 20px;
+}
