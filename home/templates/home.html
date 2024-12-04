@@ -42,7 +42,7 @@
   </footer>
 </body>
 </html> -->
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -51,15 +51,8 @@
     <title>PopcornSocial - Red Social de Reseñas de Películas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
-    <style>
-        body {
-            background-color: #1a1a2e;
-            color: #e0e0e0;
-        }
-        .card-gradient {
-            background: linear-gradient(135deg, rgba(26,26,46,0.9) 0%, rgba(48,48,80,0.9) 100%);
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/review_card.css' %}">
 </head>
 <body class="bg-gray-900 text-white">
     <!-- Barra de Navegación -->
@@ -74,12 +67,11 @@
         </div>
     </nav>
 
-    <!-- Carrusel de Reseñas Destacadas -->
+    <!-- Carrusel de Reseñas Destacadas
     <div class="container mx-auto mt-8 px-4">
         <h2 class="text-3xl font-bold mb-6">Reseñas Destacadas</h2>
         <div id="carrusel-resenas" class="carousel slide relative" data-ride="carousel">
             <div class="carousel-inner flex overflow-x-auto space-x-4 pb-4">
-                <!-- Tarjeta de Reseña 1 -->
                 <div class="carousel-item flex-shrink-0 w-80 card-gradient p-6 rounded-lg shadow-lg">
                     <div class="flex items-center mb-4">
                         <img src="/api/placeholder/50/50" alt="Avatar" class="w-12 h-12 rounded-full mr-4">
@@ -96,7 +88,6 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta de Reseña 2 -->
                 <div class="carousel-item flex-shrink-0 w-80 card-gradient p-6 rounded-lg shadow-lg">
                     <div class="flex items-center mb-4">
                         <img src="/api/placeholder/50/50" alt="Avatar" class="w-12 h-12 rounded-full mr-4">
@@ -113,7 +104,6 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta de Reseña 3 -->
                 <div class="carousel-item flex-shrink-0 w-80 card-gradient p-6 rounded-lg shadow-lg">
                     <div class="flex items-center mb-4">
                         <img src="/api/placeholder/50/50" alt="Avatar" class="w-12 h-12 rounded-full mr-4">
@@ -131,8 +121,26 @@
                 </div>
             </div>
         </div>
+    </div> -->
+    <div class="carousel-inner flex overflow-x-auto space-x-4 pb-4">
+        {% for review in reviews %}
+            <div class="carousel-item flex-shrink-0 w-80 card-gradient p-6 rounded-lg shadow-lg">
+                <div class="flex items-center mb-4">
+                    <img src="{{ review.user.profile.avatar.url|default:'/static/images/default-avatar.png' }}" alt="Avatar" class="w-12 h-12 rounded-full mr-4">
+                    <div>
+                        <h3 class="font-semibold">{{ review.user.username }}</h3>
+                        <p class="text-sm text-gray-400">{{ review.created_at|timesince }} ago</p>
+                    </div>
+                </div>
+                <h4 class="text-xl font-bold mb-2">{{ review.movie.title }}</h4>
+                <p class="text-gray-300 mb-4">{{ review.review_text }}</p>
+                <div class="flex items-center">
+                    <span class="text-yellow-400 mr-2">{{ review.stars }}</span>
+                    <span class="text-sm text-gray-400">({{ review.rating }}/5)</span>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-
     <!-- Sección de Películas Populares -->
     <div class="container mx-auto mt-12 px-4">
         <h2 class="text-3xl font-bold mb-6">Películas Populares</h2>
