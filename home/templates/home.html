@@ -1,0 +1,185 @@
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to PopcornSocial</title>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+</head>
+<body>
+  <header class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome to PopcornSocial</h1>
+      <p>Your go-to platform for movie reviews, ratings, and discussions!</p>
+    </div>
+  </header>
+  
+  <section class="features">
+    <h2>Why Join PopcornSocial?</h2>
+    <div class="feature-cards">
+      <div class="feature-card">
+        <i class="fas fa-star"></i>
+        <h3>Movie Ratings</h3>
+        <p>Discover the best movies based on user ratings and reviews.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-comment"></i>
+        <h3>Engaging Discussions</h3>
+        <p>Share your thoughts and discuss your favorite films with fellow movie enthusiasts.</p>
+      </div>
+      <div class="feature-card">
+        <i class="fas fa-film"></i>
+        <h3>Latest Releases</h3>
+        <p>Stay updated with the newest movie releases and trending films.</p>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <p>&copy; 2024 PopcornSocial. All rights reserved.</p>
+  </footer>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PopcornSocial - Red Social de Reseñas de Películas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #1a1a2e;
+            color: #e0e0e0;
+        }
+        .card-gradient {
+            background: linear-gradient(135deg, rgba(26,26,46,0.9) 0%, rgba(48,48,80,0.9) 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Barra de Navegación -->
+    <nav class="bg-gray-800 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">PopcornSocial</a>
+            <div class="flex space-x-4">
+                <a href="{% url 'login' %}"  class="text-gray-300 hover:text-white">Inicio de sesion</a>
+                <a href="{% url 'register' %}"  class="text-gray-300 hover:text-white">Registro</a>
+                <a href="{% url 'login' %}"  class="text-gray-300 hover:text-white">Perfil</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carrusel de Reseñas Destacadas -->
+    <div class="container mx-auto mt-8 px-4">
+        <h2 class="text-3xl font-bold mb-6">Reseñas Destacadas</h2>
+        <div id="carrusel-resenas" class="carousel slide relative" data-ride="carousel">
+            <div class="carousel-inner flex overflow-x-auto space-x-4 pb-4">
+                <!-- Tarjeta de Reseña 1 -->
+                <div class="carousel-item flex-shrink-0 w-80 card-gradient p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="/api/placeholder/50/50" alt="Avatar" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h3 font="font-semibold">María Rodríguez</h3>
+                            <p class="text-sm text-gray-400">Hace 2 horas</p>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Duna: Parte Dos</h4>
+                    <p class="text-gray-300 mb-4">Una obra maestra épica que supera por completo a su predecesora. La cinematografía es simplemente impresionante.</p>
+                    <div class="flex items-center">
+                        <span class="text-yellow-400 mr-2">★★★★☆</span>
+                        <span class="text-sm text-gray-400">(4/5)</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Reseña 2 -->
+                <div class="carousel-item flex-shrink-0 w-80 card-gradient p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="/api/placeholder/50/50" alt="Avatar" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h3 class="font-semibold">Carlos Martínez</h3>
+                            <p class="text-sm text-gray-400">Hace 5 horas</p>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Oppenheimer</h4>
+                    <p class="text-gray-300 mb-4">Una película intensa y profunda que te mantiene al borde del asiento. La actuación de Cillian Murphy es extraordinaria.</p>
+                    <div class="flex items-center">
+                        <span class="text-yellow-400 mr-2">★★★★★</span>
+                        <span class="text-sm text-gray-400">(5/5)</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta de Reseña 3 -->
+                <div class="carousel-item flex-shrink-0 w-80 card-gradient p-6 rounded-lg shadow-lg">
+                    <div class="flex items-center mb-4">
+                        <img src="/api/placeholder/50/50" alt="Avatar" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h3 class="font-semibold">Laura González</h3>
+                            <p class="text-sm text-gray-400">Hace 1 día</p>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Migration</h4>
+                    <p class="text-gray-300 mb-4">Una película animada encantadora que divierte a toda la familia. Perfecta para ver con los niños.</p>
+                    <div class="flex items-center">
+                        <span class="text-yellow-400 mr-2">★★★☆☆</span>
+                        <span class="text-sm text-gray-400">(3/5)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Películas Populares -->
+    <div class="container mx-auto mt-12 px-4">
+        <h2 class="text-3xl font-bold mb-6">Películas Populares</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="bg-gray-800 rounded-lg overflow-hidden">
+                <img src="/api/placeholder/300/450" alt="Película 1" class="w-full h-96 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Duna: Parte Dos</h3>
+                    <p class="text-gray-400">Ciencia Ficción</p>
+                </div>
+            </div>
+            <div class="bg-gray-800 rounded-lg overflow-hidden">
+                <img src="/api/placeholder/300/450" alt="Película 2" class="w-full h-96 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Oppenheimer</h3>
+                    <p class="text-gray-400">Drama Histórico</p>
+                </div>
+            </div>
+            <div class="bg-gray-800 rounded-lg overflow-hidden">
+                <img src="/api/placeholder/300/450" alt="Película 3" class="w-full h-96 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Migration</h3>
+                    <p class="text-gray-400">Animación</p>
+                </div>
+            </div>
+            <div class="bg-gray-800 rounded-lg overflow-hidden">
+                <img src="/api/placeholder/300/450" alt="Película 4" class="w-full h-96 object-cover">
+                <div class="p-4">
+                    <h3 class="font-bold text-lg">Gran Turismo</h3>
+                    <p class="text-gray-400">Acción</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de Página -->
+    <footer class="bg-gray-800 mt-12 py-8">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2024 PopcornSocial. Todos los derechos reservados.</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white">Política de Privacidad</a>
+                <a href="#" class="text-gray-400 hover:text-white">Términos de Servicio</a>
+                <a href="#" class="text-gray-400 hover:text-white">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
+</html>

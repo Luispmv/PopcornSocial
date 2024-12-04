@@ -1,0 +1,94 @@
+/* General styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+  }
+  
+  .hero-section {
+    background: linear-gradient(90deg, #4a00e0, #8e44ad);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .btn-explore {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff9900;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+  
+  .btn-explore:hover {
+    background-color: #e67e22;
+  }
+  
+  .features {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .features h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .feature-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .feature-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+  }
+  
+  .feature-card i {
+    font-size: 3rem;
+    color: #8e44ad;
+    margin-bottom: 10px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .feature-card p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #8e44ad;
+    color: white;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
