@@ -1,147 +1,77 @@
-/* Definición de variables de color */
-/* Definición de variables de color */
-:root {
-	--color-primary-light: #e0e0e0;
-	--color-primary-dark: #333333;
-	--color-secondary-light: #f5f5f5;
-	--color-secondary-dark: #666666;
-	--color-accent: #ff4081;
-	--color-accent-dark: #c60055;
-	--color-background: #ffffff;
-	--color-border: #cccccc;
-	--color-button-text: #333333;
-	--color-icon: #ff4081;
-	--color-shadow: rgba(0, 0, 0, 0.2);
-}
-
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-primary-dark);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
 }
 
-/* Encabezado principal */
-.hero-section {
-  background-color: var(--color-primary-dark);
-  color: var(--color-primary-light);
-  text-align: center;
-  padding: 4rem 2rem;
-  box-shadow: 0 4px 8px var(--color-shadow);
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-.hero-section h1 {
-  color: var(--color-accent);
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+::-webkit-scrollbar-track {
+    background: rgba(31, 41, 55, 0.5);
 }
 
-.hero-section p {
-  color: var(--color-secondary-light);
-  font-size: 1.25rem;
+::-webkit-scrollbar-thumb {
+    background: rgba(245, 158, 11, 0.7);
+    border-radius: 4px;
 }
 
-/* Barra de navegación */
-nav {
-  background-color: var(--color-secondary-dark);
-  border-bottom: 1px solid var(--color-border);
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(245, 158, 11, 1);
 }
 
-nav a {
-  color: var(--color-primary-light);
-  transition: color 0.3s;
+/* Line Clamp for Text Overflow */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-nav a:hover {
-  color: var(--color-accent);
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav .flex {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
 
-/* Carrusel de reseñas */
-.carousel-item {
-  background-color: var(--color-secondary-light);
-  border: 1px solid var(--color-border);
-  color: var(--color-primary-dark);
-  box-shadow: 0 2px 4px var(--color-shadow);
+/* Hover and Transition Effects */
+.transform {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.carousel-item h4 {
-  color: var(--color-accent-dark);
+.hover\:scale-105:hover {
+    transform: scale(1.05);
 }
 
-.carousel-item img {
-  border-radius: 8px;
-  border: 1px solid var(--color-border);
+/* Additional Custom Utilities */
+.bg-gradient-overlay {
+    position: relative;
 }
 
-.carousel-item span {
-  color: var(--color-accent);
-}
-
-/* Sección de Películas Populares */
-.grid div {
-  background-color: var(--color-secondary-light);
-  box-shadow: 0 4px 8px var(--color-shadow);
-}
-
-.grid img {
-  border: 1px solid var(--color-border);
-  border-radius: 8px 8px 0 0;
-}
-
-.grid h3 {
-  color: var(--color-accent-dark);
-}
-
-/* Pie de página */
-footer {
-  background-color: var(--color-secondary-dark);
-  color: var(--color-primary-light);
-}
-
-footer a {
-  color: var(--color-secondary-light);
-  transition: color 0.3s;
-}
-
-footer a:hover {
-  color: var(--color-accent);
-}
-
-/* Botones */
-button {
-  background-color: var(--color-accent);
-  color: var(--color-button-text);
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-}
-
-button:hover {
-  background-color: var(--color-accent-dark);
-  transform: scale(1.05);
-}
-
-button:active {
-  background-color: var(--color-accent-dark);
-  transform: scale(1);
-}
-
-/* Formularios */
-input, textarea {
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  padding: 0.5rem;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-input:focus, textarea:focus {
-  border-color: var(--color-accent);
-  outline: none;
-  box-shadow: 0 0 4px var(--color-shadow);
-}
-
-.mb-6{
-  margin: 20px;
+.bg-gradient-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+    z-index: 1;
 }

@@ -1,45 +1,58 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - A Pen by Mohithpoojary</title>
-  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
-  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
-  <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PopcornSocial - Login</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<!-- partial:index.partial.html -->
-<div class="container">
-	<div class="screen">
-		<div class="screen__content">
-			<form class="login" method = "post">
-				<a href="{% url 'home' %}" class="home-button">
-					<i class="fas fa-home"></i>
-				</a>
-				<h2 class="title">Login</h2>
-				{% csrf_token %}
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					{{ form.username }}
-				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					{{ form.password }}
-				</div>
-				<button type="submit" class="button login__submit">
-					<span class="button__text">Log In</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
-				<a href="{% url 'register' %}" class="button login__submit">
-					<span class="button__text">Register</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</a>				
-			</form>
-		</div>		
-	</div>
-</div>
-<!-- partial -->
-  
+<body class="bg-gradient-to-br from-gray-900 to-gray-700 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl overflow-hidden">
+        <div class="p-8">
+            <a href="{% url 'home' %}" class="absolute top-4 left-4 text-white hover:text-yellow-400 transition-colors">
+                <i class="fas fa-home text-2xl"></i>
+            </a>
+            
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-yellow-400 mb-2">Login</h2>
+                <p class="text-gray-300">Welcome back! Log in to your account</p>
+            </div>
+
+            <form method="post" class="space-y-6">
+                {% csrf_token %}
+                
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fas fa-user text-gray-400"></i>
+                    </div>
+                    {{ form.username }}
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fas fa-lock text-gray-400"></i>
+                    </div>
+                    {{ form.password }}
+                </div>
+
+                <div class="flex flex-col space-y-4">
+                    <button type="submit" class="w-full bg-yellow-500 text-gray-900 py-3 rounded-full hover:bg-yellow-400 transition-colors flex items-center justify-center">
+                        <span class="mr-2">Log In</span>
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    
+                    <div class="text-center">
+                        <span class="text-gray-300">Don't have an account?</span>
+                        <a href="{% url 'register' %}" class="text-yellow-400 hover:text-yellow-300 ml-2 transition-colors">
+                            Register
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

@@ -1,8 +1,9 @@
 from django.contrib import admin
-from .models import Movie
+from .models import Movie, Genre
 
-# Register your models here.
-@admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
-    list_display = ('title', 'release_date', 'genre')
-    search_fields = ('title', 'genre', 'director')
+    list_display = ('title', 'genre')  # Mostrar género en la lista
+    search_fields = ('title',)
+
+admin.site.register(Movie, MovieAdmin)
+admin.site.register(Genre)
