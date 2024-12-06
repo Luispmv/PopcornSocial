@@ -28,28 +28,28 @@
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <i class="fas fa-user text-gray-400"></i>
                     </div>
-                    {{ form.username }}
+                    <input type="text" name="username" id="username" class="w-full pl-10 py-2 rounded-lg border border-gray-300 bg-gray-800 text-white focus:outline-none focus:border-yellow-400 focus:ring focus:ring-yellow-400 focus:ring-opacity-30" placeholder="Username" value="{{ form.username.value }}">
                 </div>
                 
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <i class="fas fa-envelope text-gray-400"></i>
                     </div>
-                    {{ form.email }}
+                    <input type="email" name="email" id="email" class="w-full pl-10 py-2 rounded-lg border border-gray-300 bg-gray-800 text-white focus:outline-none focus:border-yellow-400 focus:ring focus:ring-yellow-400 focus:ring-opacity-30" placeholder="Email" value="{{ form.email.value }}">
                 </div>
                 
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <i class="fas fa-lock text-gray-400"></i>
                     </div>
-                    {{ form.password }}
+                    <input type="password" name="password" id="password" class="w-full pl-10 py-2 rounded-lg border border-gray-300 bg-gray-800 text-white focus:outline-none focus:border-yellow-400 focus:ring focus:ring-yellow-400 focus:ring-opacity-30" placeholder="Password" value="{{ form.password.value }}">
                 </div>
                 
                 <div class="relative">
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <i class="fas fa-lock text-gray-400"></i>
                     </div>
-                    {{ form.confirm_password }}
+                    <input type="password" name="confirm_password" id="confirm_password" class="w-full pl-10 py-2 rounded-lg border border-gray-300 bg-gray-800 text-white focus:outline-none focus:border-yellow-400 focus:ring focus:ring-yellow-400 focus:ring-opacity-30" placeholder="Confirm Password" value="{{ form.confirm_password.value }}">
                 </div>
                 
                 <div class="flex flex-col space-y-4">
@@ -68,3 +68,5 @@
             </form>
         </div>
     </div>
+</body>
+</html>

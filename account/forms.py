@@ -1,34 +1,40 @@
 from django import forms
 
 class LoginForm(forms.Form):
-    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder' : 'User name / Email',
-                                                             'class' : 'login__input'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder' : 'Password',
-                                                                 'class' : 'login__input'}))
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'User name / Email',
+                                                             'class': 'login__input',
+                                                             'style': 'width: 100%; padding: 10px; margin-bottom: 10px;'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password',
+                                                                 'class': 'login__input',
+                                                                 'style': 'width: 100%; padding: 10px; margin-bottom: 10px;'}))
     
 class RegisterForm(forms.Form):
     username = forms.CharField(
         widget=forms.TextInput(attrs={
             'placeholder': 'User name',
-            'class': 'login__input'
+            'class': 'login__input',
+            'style': 'width: 100%; padding: 10px; margin-bottom: 10px;'
         })
     )
     email = forms.EmailField(
         widget=forms.EmailInput(attrs={
             'placeholder': 'Email',
-            'class': 'login__input'
+            'class': 'login__input',
+            'style': 'width: 100%; padding: 10px; margin-bottom: 10px;'
         })
     )
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={
             'placeholder': 'Password',
-            'class': 'login__input'
+            'class': 'login__input',
+            'style': 'width: 100%; padding: 10px; margin-bottom: 10px;'
         })
     )
     confirm_password = forms.CharField(
         widget=forms.PasswordInput(attrs={
             'placeholder': 'Confirm Password',
-            'class': 'login__input'
+            'class': 'login__input',
+            'style': 'width: 100%; padding: 10px; margin-bottom: 10px;'
         })
     )
 

@@ -1,0 +1,130 @@
+/* Fondo general */
+body {
+    background: linear-gradient(to bottom right, #1f2937, #374151);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenedor principal */
+main {
+    flex-grow: 1;
+    padding: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Sección del formulario */
+form {
+    background-color: rgba(55, 65, 81, 0.9); /* bg-gray-800 con opacidad */
+    border-radius: 1rem; /* rounded-2xl */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* shadow-xl */
+    padding: 2rem;
+    backdrop-filter: blur(8px); /* backdrop-blur-lg */
+}
+
+/* Estilo para las etiquetas */
+label {
+    font-weight: 700; /* font-bold */
+    color: #facc15; /* text-yellow-400 */
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* Estilo para los campos del formulario */
+textarea,
+select,
+input[type="text"],
+input[type="number"] {
+    background-color: #374151; /* bg-gray-700 */
+    color: #ffffff; /* text-white */
+    padding: 0.75rem;
+    border-radius: 0.5rem; /* rounded-lg */
+    width: 100%;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+textarea:focus,
+select:focus,
+input[type="text"]:focus,
+input[type="number"]:focus {
+    outline: none;
+    border-color: #facc15; /* border-yellow-400 */
+    background-color: #4b5563; /* bg-gray-600 */
+}
+
+/* Botones */
+button {
+    font-weight: 700; /* font-bold */
+    border-radius: 0.5rem; /* rounded-lg */
+    padding: 0.75rem 1.5rem;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    display: inline-block;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Botón "Guardar Reseña" */
+button[type="submit"] {
+    background-color: #facc15; /* bg-yellow-400 */
+    color: #1f2937; /* text-gray-800 */
+}
+
+button[type="submit"]:hover {
+    background-color: #eab308; /* hover:bg-yellow-300 */
+}
+
+/* Botón "Cancelar" */
+a.cancel-button {
+    background-color: #374151; /* bg-gray-700 */
+    color: #ffffff; /* text-white */
+    text-align: center;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem; /* rounded-lg */
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+a.cancel-button:hover {
+    background-color: #4b5563; /* hover:bg-gray-600 */
+}
+
+/* Títulos */
+h2 {
+    font-size: 2rem;
+    font-weight: 700; /* font-bold */
+    text-align: center;
+    color: #facc15; /* text-yellow-400 */
+    margin-bottom: 1.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(55, 65, 81, 0.9); /* bg-gray-800 con opacidad */
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: auto;
+    border-top: 1px solid #4b5563; /* bg-gray-600 */
+}
+
+footer p {
+    color: #9ca3af; /* text-gray-400 */
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: #facc15; /* text-yellow-400 */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #eab308; /* hover:text-yellow-300 */
+}

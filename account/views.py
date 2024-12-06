@@ -12,19 +12,21 @@ def user_login(request):
         if form.is_valid():
             cd = form.cleaned_data
             user = authenticate(request,
-                                username = cd['username'],
+                                username=cd['username'],
                                 password=cd['password'])
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return HttpResponse('Authenticated succesfully')
+                    return redirect('movie_catalog')
                 else:
-                    return HttpResponse('Disabled accout')
+                    messages.error(request, 'Your account is disabled.')
+                    return redirect('login')
             else:
-                return HttpResponse('Invalid login')
+                messages.error(request, 'Invalid username or password.')
+                return redirect('login')
     else:
         form = LoginForm()
-    return render(request, 'login.html', {'form':form})
+    return render(request, 'login.html', {'form': form})
 
 def register_view(request):
     if request.method == 'POST':

@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Películas - PopcornSocial</title>
+    <link rel="stylesheet" href="{% static 'css/alternative_home.css' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-gray-700 text-white min-h-screen flex flex-col">
+    <!-- Barra de Navegación -->
+    <nav class="sticky top-0 z-50 bg-opacity-50 backdrop-blur-lg bg-gray-800 shadow-xl">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <a href="{% url 'home' %}" class="text-3xl font-extrabold text-yellow-400 hover:text-yellow-300 transition-colors flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/>
+                </svg>
+                PopcornSocial
+            </a>
+            <a href="{% url 'home' %}">
+                Cierre de sesión
+            </a>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="flex-grow container mx-auto px-4 py-8 space-y-12">
+        <section class="bg-gray-800 bg-opacity-50 rounded-2xl p-6 shadow-xl backdrop-blur-lg">
+            <h2 class="text-4xl font-bold text-yellow-400 mb-8 text-center">Elige tu pelicula para hacer una reseña</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                {% for movie in movies %}
+                    <div class="bg-gray-700 rounded-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 hover:shadow-2xl">
+                        <img 
+                            src="{{ movie.poster_url }}" 
+                            alt="{{ movie.title }}" 
+                            class="w-full h-64 object-cover cursor-pointer" 
+                            onclick="openModal('{{ movie.id }}', '{{ movie.title }}', '{{ movie.description }}', '{{ movie.poster_url }}')"
+                        >
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg text-yellow-400 mb-2 truncate">{{ movie.title }}</h3>
+                            <p class="text-sm text-gray-400">{{ movie.genre }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="movieModal" class="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center hidden">
+        <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden max-w-lg w-full">
+            <div class="relative">
+                <img id="modalPoster" src="" alt="" class="w-full h-64 object-cover">
+                <button 
+                    onclick="closeModal()" 
+                    class="absolute top-4 right-4 bg-yellow-400 text-black rounded-full p-2 hover:bg-yellow-500"
+                >
+                    &times;
+                </button>
+            </div>
+            <div class="p-6">
+                <h3 id="modalTitle" class="text-2xl font-bold text-yellow-400"></h3>
+                <p id="modalDescription" class="text-gray-400 mt-4"></p>
+                <div class="mt-6 flex justify-end">
+                    <a 
+                        id="reviewButton" 
+                        href=""
+                        class="bg-yellow-400 text-black py-2 px-4 rounded-lg hover:bg-yellow-500 transition-colors"
+                    >
+                        Reseña
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Pie de Página -->
+    <footer class="bg-gray-800 bg-opacity-50 backdrop-blur-lg py-8">
+        <div class="container mx-auto text-center">
+            <p class="mb-4 text-gray-400">&copy; 2024 PopcornSocial. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openModal(movieId, title, description, posterUrl) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDescription').innerText = description;
+            document.getElementById('modalPoster').src = posterUrl;
+            document.getElementById('movieModal').classList.remove('hidden');
+
+            // Actualiza dinámicamente el enlace del botón de reseña con el ID de la película
+            const reviewButton = document.getElementById('reviewButton');
+            reviewButton.href = `/add_review/${movieId}/`; // Ajusta la URL según tu configuración de URL
+
+            // Muestra el modal
+            document.getElementById('movieModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('movieModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
